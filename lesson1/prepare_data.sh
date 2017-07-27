@@ -6,7 +6,7 @@ kg download -u $1 -p $2 -c 'dogs-vs-cats'
 
 echo 'Unzip training data...'
 
-unzip train.zip
+unzip -q train.zip
 
 echo 'Split data by class...'
 
@@ -19,14 +19,14 @@ find train -type f -name 'dog*jpg' -exec mv {} train/dog/ \;
 echo 'Split training data into train/validation...'
 
 mkdir -p valid/cat
-ls train/cat/ | gshuf -n 2000 | while read file; do mv train/cat/$file valid/cat/; done
+ls train/cat/ | gshuf -n 2000 | xargs -I '{}' mv 'train/cat/{}' valid/cat/
 
 mkdir -p valid/dog
-ls train/dog/ | gshuf -n 2000 | while read file; do mv train/dog/$file valid/dog/; done
+ls train/dog/ | gshuf -n 2000 | xargs -I '{}' mv 'train/dog/{}' valid/dog/
 
 echo 'Unzip test set...'
 
-unzip test1.zip
+unzip -q test1.zip
 
 echo 'Move everything into a data/ directory...'
 
