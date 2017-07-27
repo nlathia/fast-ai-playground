@@ -1,0 +1,5 @@
+awscli
+kaggle-cli
+scipy
+numpy
+keras
