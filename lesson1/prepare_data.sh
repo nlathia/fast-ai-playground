@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
+echo 'Download data from Kaggle...'
+
 kg download -u $1 -p $2 -c 'dogs-vs-cats'
+
+echo 'Unzip training data...'
 
 unzip train.zip
 
-# Split data by class
+echo 'Split data by class...'
 
 mkdir train/cat
 find train -type f -name 'cat*jpg' -exec mv {} train/cat/ \;
@@ -12,16 +16,19 @@ find train -type f -name 'cat*jpg' -exec mv {} train/cat/ \;
 mkdir train/dog
 find train -type f -name 'dog*jpg' -exec mv {} train/dog/ \;
 
-# Split training data into train/validation
+echo 'Split training data into train/validation...'
 
 mkdir -p valid/cat
-mkdir -p valid/dog
+ls train/cat/ | gshuf -n 2000 | while read file; do mv train/cat/$file valid/cat/; done
 
-# Unzip test set
+mkdir -p valid/dog
+ls train/dog/ | gshuf -n 2000 | while read file; do mv train/dog/$file valid/dog/; done
+
+echo 'Unzip test set...'
 
 unzip test1.zip
 
-# Move everything into a data/ directory
+echo 'Move everything into a data/ directory...'
 
 mkdir data
 mv train data

@@ -2,9 +2,13 @@
 
 ### 1: Download and prepare the data
 
-Run this:
-
+If you're on a mac, the following assumes that you have `coreutils` installed. If you do not:
+```bash
+brew install coreutils
 ```
+
+Run this:
+```bash
 (fast-ai) $ ./prepare_data.sh <your-kaggle-username> <your-kaggle-pwd>
 ```
 
