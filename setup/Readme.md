@@ -37,7 +37,7 @@ The default limit for creating `p2.xlarge` instance types is 0. To increase this
 4. Complete the form as follows:
     * Regarding: `Service Limit Increase`
     * Limit type: `EC2 Instances`
-    * Region: <your preferred region>
+    * Region: (your preferred region)
     * Primary Instance Type: `p2.xlarge`
     * Use Case Description: `fast.ai MOOC`
     * Contact method: Web
