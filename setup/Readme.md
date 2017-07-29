@@ -75,6 +75,8 @@ This will store the credentials in `~/.aws/credentials`.
 
 ## Create Instances
 
+Note: WIP.
+
 **Pre-Requisites:**
 * You have the fast.ai scripts. The latest ones are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
 
