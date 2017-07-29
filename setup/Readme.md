@@ -21,6 +21,29 @@ Last run: July 2017.
 6. Review the settings, and click `Create user`.
 7. After the user has been created, you can see the access key and secret. Keep a note of both of these.
     * There is also an option to download these values as a `credentials.csv` file.
+
+## Request Limit Increase
+
+The default limit for creating `p2.xlarge` instance types is 0. To increase this limit:
+
+Last run: July 2017.
+
+**Pre-Requisite**:
+* You have an AWS account.
+
+**Steps**:
+1. In the AWS console, go to the EC2 dashboard.
+2. On the left hand menu, click on `Limits`.
+3. Click on `Request limit increase` on any instance type; they all take you to the same place.
+    * You will be taken to the `Create Case` section of the `Support Center`.
+4. Complete the form as follows:
+    * Regarding: `Service Limit Increase`
+    * Limit type: `EC2 Instances`
+    * Region: <your preferred region>
+    * Primary Instance Type: `p2.xlarge`
+    * Use Case Description: `fast.ai MOOC`
+    * Contact method: Web
+5. Click `Submit`. If you set your use case description as above, the authorisation reply should be immediate. The email you will receive may state that: "It can sometimes take up to 30 minutes for this to propagate and become available for use."
     
 ## Configure the AWS Command Line Interface
 
