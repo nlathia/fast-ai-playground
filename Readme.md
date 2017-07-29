@@ -8,7 +8,7 @@ Refer to the [AWS install wiki page](http://wiki.fast.ai/index.php/AWS_install).
 
 First, install [pyenv](https://github.com/pyenv/pyenv).
 
-Now, set up your environmment:
+Now, set up your environment using [install.sh](install.sh):
 
 ```
 $ ./install.sh
