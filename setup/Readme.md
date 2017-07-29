@@ -1,10 +1,10 @@
 # Setup AWS for Deep Learning
 
+The steps were last run in July 2017.
+
 ## Create an AWS User
 
 This step is only required if you do not already have an IAM user with programmatic access to AWS.
-
-Last run: July 2017.
 
 **Pre-Requisite**:
 * You have an AWS account.
@@ -25,8 +25,6 @@ Last run: July 2017.
 ## Request Limit Increase
 
 The default limit for creating `p2.xlarge` instance types is 0. To increase this limit:
-
-Last run: July 2017.
 
 **Pre-Requisite**:
 * You have an AWS account.
