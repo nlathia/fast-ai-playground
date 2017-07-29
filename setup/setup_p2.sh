@@ -15,6 +15,15 @@ else
   exit 1
 fi
 
-export instanceType="p2.xlarge"
+# get the profile
+if [ $# -eq 0 ]
+  then
+    echo "Setting up using the default profile"
+    export profileName="default"
+else
+    echo "Setting up using the $1 profile"
+    export profileName="$1"
+fi
 
+export instanceType="p2.xlarge"
 . $(dirname "$0")/setup_instance.sh
