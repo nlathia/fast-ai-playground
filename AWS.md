@@ -1,15 +1,13 @@
 # Setup AWS for Deep Learning
 
-## Pre-Requisites
+## Create an AWS User
 
+Last run: July 2017.
+
+**Pre-Requisite**:
 * You have an AWS account.
-* You have `awscli` installed (this is installed as part of the [install.sh](install.sh) virtual environment).
-* You have the `fast.ai` scripts. The latest ones are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
 
-## Steps
-
-### Create an AWS User
-
+**Steps**:
 1. In the AWS console, go to the IAM section (Identity and Access Management).
 2. On the left hand menu, click on `Users`.
 3. Click the `Add User` button.
@@ -22,3 +20,32 @@
 7. After the user has been created, you can see the access key and secret. Keep a note of both of these.
     * There is also an option to download these values as a `credentials.csv` file.
     
+### Configure the AWS Command Line Interface
+
+**Pre-Requisite**:
+* You have a bash terminal.
+* You have `awscli` installed.
+* You have the credentials that were generated in the previous step.
+
+Note: `awscli` is installed as part of the virtual environment created by [install.sh](install.sh). If you have used that, just activate the virtual environment by:
+
+```bash
+$ cd /path/to/this/project/
+$ source .venv/bin/activate
+```
+
+**Steps**:
+1. Type `$ aws configure --profile fastai`.
+    * It's useful to use a `--profile` if you need to have more than one set of AWS credentials on the same machine.
+    * The [original instructions](http://wiki.fast.ai/index.php/AWS_install) configure aws to use a `default` profile.
+    * Leaving out the `--profile fastai` will set you up to use the `default` profile.
+2. Input the requested information:
+
+```bash
+AWS Access Key ID [None]: <Access key ID>        
+AWS Secret Access Key [None]: <Secret access key>
+Default region name [None]: <Your region, e.g. eu-west-1>
+Default output format [None]: <blank>
+``` 
+
+This will store the credentials in `~/.aws/credentials`.
