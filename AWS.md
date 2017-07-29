@@ -20,7 +20,7 @@ Last run: July 2017.
 7. After the user has been created, you can see the access key and secret. Keep a note of both of these.
     * There is also an option to download these values as a `credentials.csv` file.
     
-### Configure the AWS Command Line Interface
+## Configure the AWS Command Line Interface
 
 **Pre-Requisite**:
 * You have a bash terminal.
@@ -45,7 +45,14 @@ $ source .venv/bin/activate
 AWS Access Key ID [None]: <Access key ID>        
 AWS Secret Access Key [None]: <Secret access key>
 Default region name [None]: <Your region, e.g. eu-west-1>
-Default output format [None]: <blank>
+Default output format [None]: text
 ``` 
 
 This will store the credentials in `~/.aws/credentials`.
+
+## Create Instances
+
+**Pre-Requisites:**
+* You have the fast.ai scripts. The latest ones are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
+
+**Steps**:
