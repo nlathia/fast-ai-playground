@@ -2,6 +2,8 @@
 
 ## Create an AWS User
 
+This step is only required if you do not already have an IAM user with programmatic access to AWS.
+
 Last run: July 2017.
 
 **Pre-Requisite**:
@@ -27,7 +29,7 @@ Last run: July 2017.
 * You have `awscli` installed.
 * You have the credentials that were generated in the previous step.
 
-Note: `awscli` is installed as part of the virtual environment created by [install.sh](install.sh). If you have used that, just activate the virtual environment by:
+Note: `awscli` is installed as part of the virtual environment created by [install.sh](../install.sh). If you have used that, just activate the virtual environment by:
 
 ```bash
 $ cd /path/to/this/project/
