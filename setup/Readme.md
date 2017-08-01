@@ -89,3 +89,11 @@ $ ./setup_p2.sh <profile-name>
 ```
 
 Where `<profile-name>` is the profile you created when configuring your AWS CLI. 
+
+This will produce:
+* `fast-ai-connect.sh` to connect to your instance.
+* `fast-ai-reboot.sh` to reboot your instance (untested).
+* `fast-ai-start.sh` to start your instance and create/restore an EBS volume from a snapshot.
+* `fast-ai-stop.sh` to stop your instance and detach/store your EBS volume as a snapshopt.
+* `fast-ai-variables.sh` to export all of the variables created throughout the installation.
+* `uninstall-p2.xlarge.sh` to uninstall/remove everything.
