@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## save delete commands for cleanup
-target=$name-uninstall.sh
+target=$instanceType-uninstall.sh
 
 echo Creating $target...
 
@@ -22,8 +22,10 @@ echo aws ec2 delete-route-table --route-table-id $routeTableId --profile $profil
 echo aws ec2 detach-internet-gateway --internet-gateway-id $internetGatewayId --vpc-id $vpcId --profile $profileName >> $target
 echo aws ec2 delete-internet-gateway --internet-gateway-id $internetGatewayId --profile $profileName >> $target
 echo aws ec2 delete-subnet --subnet-id $subnetId --profile $profileName >> $target
+echo rm $name-*.sh >> $target
 
 echo aws ec2 delete-vpc --vpc-id $vpcId --profile $profileName >> $target
 echo echo If you want to delete the key-pair, please do it manually. >> $target
 
 chmod u+x $target
+

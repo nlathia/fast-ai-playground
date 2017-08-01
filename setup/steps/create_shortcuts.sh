@@ -1,8 +1,10 @@
 #!/bin/bash
 
 echo Creating shortcuts...
+rm $name-*.sh
 
 ## export vars to be sure
+echo \# Your setup variables: > $name-variables.sh
 echo export instanceId=$instanceId >> $name-variables.sh
 echo export subnetId=$subnetId >> $name-variables.sh
 echo export securityGroupId=$securityGroupId >> $name-variables.sh
@@ -12,8 +14,6 @@ echo export name=$name >> $name-variables.sh
 echo export vpcId=$vpcId >> $name-variables.sh
 echo export internetGatewayId=$internetGatewayId >> $name-variables.sh
 echo export subnetId=$subnetId >> $name-variables.sh
-echo export allocAddr=$allocAddr >> $name-variables.sh
-echo export assocId=$assocId >> $name-variables.sh
 echo export routeTableAssoc=$routeTableAssoc >> $name-variables.sh
 echo export profileName=$profileName >> $name-variables.sh
 

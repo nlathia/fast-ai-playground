@@ -2,11 +2,13 @@
 
 instanceName="$name-gpu-machine"
 
-export instanceId=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].InstanceId" --filter "Name=tag-value,Values=$instanceName" "Name=instance-state-code,Values=0,16,32")
+export instanceId=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].InstanceId" --filter "Name=tag-value,Values=$instanceName" "Name=instance-state-code,Values=80")
 
-if [[ -z $instanceId ]]
+if [ "$instanceId" = "None" ]
   then
     echo "Creating a new $instanceType instance..."
+    exit 1
+
     export instanceId=$(aws ec2 run-instances --image-id $ami --count 1 --instance-type $instanceType --key-name aws-key-$name --security-group-ids $securityGroupId --subnet-id $subnetId --associate-public-ip-address --block-device-mapping file://config/ebs_config.json --query 'Instances[0].InstanceId' --output text --profile $profileName)
     aws ec2 create-tags --resources $instanceId --tags --tags Key=Name,Value=$instanceName --profile $profileName
     export allocAddr=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text --profile $profileName)
@@ -23,10 +25,12 @@ if [[ -z $instanceId ]]
     ## see also http://forums.fast.ai/t/no-cuda-capable-device-is-detected/168/13
     aws ec2 reboot-instances --instance-ids $instanceId --profile $profileName
 
+    echo 'Setup finished. Stopping instance...'
+    aws ec2 stop-instances --instance-ids $instanceId --profile $profileName
 else
-  echo "Non-null value: $instanceId"
+  echo "Retriving info about existing instance: $instanceId"
+  export instanceUrl=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].PublicDnsName" --instance-ids $instanceId)
 fi
 
 echo "Your instance id is: $instanceId"
-echo "This instance has the following address: $assocId"
 echo "The instance URL is: $instanceUrl"
