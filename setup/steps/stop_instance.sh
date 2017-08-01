@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo aws ec2 stop-instances --instance-ids $instanceId --profile $profileName
-echo aws ec2 wait instance-stopped --instance-ids $instanceId --profile $profileName
-
 volumeId=$(aws ec2 describe-volumes --profile $profileName --filters "Name=attachment.instance-id,Values=$instanceId" --query "Volumes[0].VolumeId" --output text)
 
 if [ "$volumeId" != "None" ]
@@ -19,3 +16,7 @@ if [ "$volumeId" != "None" ]
 else
   echo 'No volumes attached to instance.'
 fi
+
+aws ec2 stop-instances --instance-ids $instanceId --profile $profileName
+aws ec2 wait instance-stopped --instance-ids $instanceId --profile $profileName
+

@@ -75,8 +75,6 @@ This will store the credentials in `~/.aws/credentials`.
 
 ## Create Instances
 
-Note: WIP.
-
 **Pre-Requisites:**
 * You have completed all the steps above.
 
