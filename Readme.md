@@ -7,6 +7,7 @@ Refer to the [AWS install wiki page](http://wiki.fast.ai/index.php/AWS_install).
 Alternatively, I have made step-by-step setup guide [here](setup/Readme.md). This setup has the following differences:
 * Setup instructions using the AWS console interface as of July 2017.
 * Using an AWS `profile` argument instead of using the `default` profile.
+* Operations are idempotent (they do not recreate things if they already exist).
 * Does not open up instance ports (needed for Jupyter)
 
 
