@@ -73,7 +73,7 @@ Default output format [None]: text
 
 This will store the credentials in `~/.aws/credentials`.
 
-## Create Instances
+## Create the Instance
 
 **Pre-Requisites:**
 * You have completed all the steps above.
