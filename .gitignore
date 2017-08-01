@@ -5,4 +5,4 @@ commands*
 *.csv
 *.zip
 fast-ai*.sh
-*uninstall*.sh
+uninstall-*.sh
