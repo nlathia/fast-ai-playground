@@ -84,4 +84,10 @@ Note: WIP.
 If you have used the `default` profile, you can simply follow the original instructions.
     * The latest scripts are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
     
-If you have used a non-`default` profile, then you'll need the scripts in this directory.
+If you have used a non-`default` profile, then you'll need the scripts in this directory. Run:
+
+```bash
+$ ./setup_p2.sh <profile-name>
+```
+
+Where `<profile-name>` is the profile you created when configuring your AWS CLI. 

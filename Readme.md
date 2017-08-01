@@ -8,6 +8,7 @@ Alternatively, I have made step-by-step setup guide [here](setup/Readme.md). Thi
 * Setup instructions using the AWS console interface as of July 2017.
 * Using an AWS `profile` argument instead of using the `default` profile.
 * Operations are idempotent (they do not recreate things if they already exist).
+* Commands to start/stop/reboot instances are split up into `.sh` files (instead of a single `commands.txt`).
 * Does not open up instance ports (needed for Jupyter)
 
 
