@@ -34,4 +34,5 @@ export cidr="0.0.0.0/0"
 # Create/export security group
 . $(dirname "$0")/steps/export_securityGroup.sh
 
-#. $(dirname "$0")/setup_instance.sh
+# Create/check SSH key-pair
+. $(dirname "$0")/steps/create_ssh_key_pair.sh
