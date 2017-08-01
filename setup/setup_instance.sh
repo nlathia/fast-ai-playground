@@ -8,11 +8,7 @@
 
 
 
-#echo 'Creating: routeTableId'
-#export routeTableId=$(aws ec2 create-route-table --vpc-id $vpcId --query 'RouteTable.RouteTableId' --output text --profile $profileName)
-#aws ec2 create-tags --resources $routeTableId --tags --tags Key=Name,Value=$name-route-table --profile $profileName
-#export routeTableAssoc=$(aws ec2 associate-route-table --route-table-id $routeTableId --subnet-id $subnetId --output text --profile $profileName)
-#aws ec2 create-route --route-table-id $routeTableId --destination-cidr-block 0.0.0.0/0 --gateway-id $internetGatewayId --profile $profileName
+
 
 #export securityGroupId=$(aws ec2 create-security-group --group-name $name-security-group --description "SG for fast.ai machine" --vpc-id $vpcId --query 'GroupId' --output text --profile $profileName)
 

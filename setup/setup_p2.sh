@@ -28,4 +28,7 @@ export cidr="0.0.0.0/0"
 # Create/export subnet id
 . $(dirname "$0")/steps/export_subnetId.sh
 
+# Create/export route table
+. $(dirname "$0")/steps/export_routeTable.sh
+
 #. $(dirname "$0")/setup_instance.sh
