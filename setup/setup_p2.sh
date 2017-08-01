@@ -2,7 +2,13 @@
 #
 # Configure a p2.xlarge instance
 
+# uncomment for debugging
+# set -x
+
+# Settings
 export instanceType="p2.xlarge"
+export name="fast-ai"
+export cidr="0.0.0.0/0"
 
 # Make sure CLI is installed
 . $(dirname "$0")/steps/check_awscli_installed.sh
@@ -15,5 +21,8 @@ export instanceType="p2.xlarge"
 
 # Create a VPC, if one doesn't already exist
 . $(dirname "$0")/steps/export_vpcId.sh
+
+# Create/attach an Internet Gateway Id, if one doesn't already exist
+. $(dirname "$0")/steps/export_internetGatewayId.sh
 
 #. $(dirname "$0")/setup_instance.sh

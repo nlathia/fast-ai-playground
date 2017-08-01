@@ -3,34 +3,18 @@
 # This script should be invoked via setup_t2.sh or setup_p2.sh; those scripts
 # will export the right environment variables for this to succeed.
 
-# uncomment for debugging
-set -x
-
-if [ -z "$ami" ] || [ -z "$instanceType" ] || [ -z "profileName" ]; then
-    echo "Missing \$ami or \$instanceType; this script should be called from"
-    echo "setup_t2.sh or setup_p2.sh!"
-    exit 1
-fi
-
-# settings
-export name="fast-ai"
-export cidr="0.0.0.0/0"
 
 
 
 
-#echo 'Creating: internetGatewayId...'
-#export internetGatewayId=$(aws ec2 create-internet-gateway --query 'InternetGateway.InternetGatewayId' --output text --profile $profileName)
-#aws ec2 create-tags --resources $internetGatewayId --tags --tags Key=Name,Value=$name-gateway --profile $profileName
-#aws ec2 attach-internet-gateway --internet-gateway-id $internetGatewayId --vpc-id $vpcId --profile $profileName
-#echo $internetGatewayId
+
+
 
 echo 'Creating: subnetId'
 #export subnetId=$(aws ec2 create-subnet --vpc-id $vpcId --cidr-block 10.0.0.0/28 --query 'Subnet.SubnetId' --output text --profile $profileName)
 #aws ec2 create-tags --resources $subnetId --tags --tags Key=Name,Value=$name-subnet --profile $profileName
 #echo $subnetId
 
-#exit 0
 
 #echo 'Creating: routeTableId'
 #export routeTableId=$(aws ec2 create-route-table --vpc-id $vpcId --query 'RouteTable.RouteTableId' --output text --profile $profileName)
