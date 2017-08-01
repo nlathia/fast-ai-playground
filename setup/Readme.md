@@ -40,7 +40,7 @@ The default limit for creating `p2.xlarge` instance types is 0. To increase this
     * Region: (your preferred region)
     * Primary Instance Type: `p2.xlarge`
     * Use Case Description: `fast.ai MOOC`
-    * Contact method: Web
+    * Contact method: `Web`
 5. Click `Submit`. If you set your use case description as above, the authorisation reply should be immediate. The email you will receive may state that: "It can sometimes take up to 30 minutes for this to propagate and become available for use."
     
 ## Configure the AWS Command Line Interface
@@ -78,6 +78,10 @@ This will store the credentials in `~/.aws/credentials`.
 Note: WIP.
 
 **Pre-Requisites:**
-* You have the fast.ai scripts. The latest ones are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
+* You have completed all the steps above.
 
 **Steps**:
+If you have used the `default` profile, you can simply follow the original instructions.
+    * The latest scripts are stored in the [fast.ai Github repository](https://github.com/fastai/courses/tree/master/setup).
+    
+If you have used a non-`default` profile, then you'll need the scripts in this directory.

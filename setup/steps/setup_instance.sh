@@ -4,9 +4,9 @@
 # will export the right environment variables for this to succeed.
 
 # uncomment for debugging
-# set -x
+set -x
 
-if [ -z "$ami" ] || [ -z "$instanceType" ]; then
+if [ -z "$ami" ] || [ -z "$instanceType" ] || [ -z "profileName" ]; then
     echo "Missing \$ami or \$instanceType; this script should be called from"
     echo "setup_t2.sh or setup_p2.sh!"
     exit 1
@@ -16,19 +16,8 @@ fi
 export name="fast-ai"
 export cidr="0.0.0.0/0"
 
-hash aws 2>/dev/null
-if [ $? -ne 0 ]; then
-    echo >&2 "'aws' command line tool required, but not installed. Aborting."
-    exit 1
-fi
 
-if [ -z "$(aws configure get aws_access_key_id --profile $profileName)" ]; then
-    echo "AWS credentials not configured. Aborting"
-    exit 1
-fi
 
-echo 'Creating: vpcId...'
-. $(dirname "$0")/create_vpcId.sh
 
 #echo 'Creating: internetGatewayId...'
 #export internetGatewayId=$(aws ec2 create-internet-gateway --query 'InternetGateway.InternetGatewayId' --output text --profile $profileName)
