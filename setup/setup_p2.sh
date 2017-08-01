@@ -9,7 +9,7 @@
 set -e
 
 # Settings
-export instanceType="p2.xlarge"
+export instanceType="p2.xlarge"  # t2.xlarge
 export name="fast-ai"
 export cidr="0.0.0.0/0"
 

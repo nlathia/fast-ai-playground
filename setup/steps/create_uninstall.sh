@@ -6,7 +6,6 @@ target=uninstall-$instanceType.sh
 echo Creating $target...
 
 echo "#!/bin/bash" > $target # overwrite existing file
-echo ". $(dirname "$0")/$name-variables.sh" >> $target
 
 echo aws ec2 disassociate-address --association-id $assocId --profile $profileName >> $target
 echo aws ec2 release-address --allocation-id $allocAddr --profile $profileName >> $target
