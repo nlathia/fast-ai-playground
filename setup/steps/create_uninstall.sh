@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## save delete commands for cleanup
-target=$instanceType-uninstall.sh
+target=uninstall-$instanceType.sh
 
 echo Creating $target...
 

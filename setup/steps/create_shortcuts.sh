@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo Creating shortcuts...
-rm $name-*.sh
+rm -f $name-*.sh
 
 ## export vars to be sure
 echo \# Your setup variables: > $name-variables.sh
@@ -11,6 +11,7 @@ echo export securityGroupId=$securityGroupId >> $name-variables.sh
 echo export instanceUrl=$instanceUrl >> $name-variables.sh
 echo export routeTableId=$routeTableId >> $name-variables.sh
 echo export name=$name >> $name-variables.sh
+echo export assocId=$assocId >> $name-variables.sh
 echo export vpcId=$vpcId >> $name-variables.sh
 echo export internetGatewayId=$internetGatewayId >> $name-variables.sh
 echo export subnetId=$subnetId >> $name-variables.sh

@@ -2,15 +2,17 @@
 
 instanceName="$name-gpu-machine"
 
-export instanceId=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].InstanceId" --filter "Name=tag-value,Values=$instanceName" "Name=instance-state-code,Values=80")
+export instanceId=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].InstanceId" --filter "Name=tag-value,Values=$instanceName")
 
 if [ "$instanceId" = "None" ]
   then
     echo "Creating a new $instanceType instance..."
+
     exit 1
 
     export instanceId=$(aws ec2 run-instances --image-id $ami --count 1 --instance-type $instanceType --key-name aws-key-$name --security-group-ids $securityGroupId --subnet-id $subnetId --associate-public-ip-address --block-device-mapping file://config/ebs_config.json --query 'Instances[0].InstanceId' --output text --profile $profileName)
     aws ec2 create-tags --resources $instanceId --tags --tags Key=Name,Value=$instanceName --profile $profileName
+
     export allocAddr=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text --profile $profileName)
 
     echo "Waiting for instance start..."
@@ -28,9 +30,11 @@ if [ "$instanceId" = "None" ]
     echo 'Setup finished. Stopping instance...'
     aws ec2 stop-instances --instance-ids $instanceId --profile $profileName
 else
-  echo "Retriving info about existing instance: $instanceId"
+  echo "Retrieving info about existing instance: $instanceId"
   export instanceUrl=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].PublicDnsName" --instance-ids $instanceId)
+  export assocId=$(aws ec2 describe-addresses --profile $profileName --filters "Name=instance-id,Values=$instanceId" --query "Addresses[0].AssociationId" --output text)
 fi
 
 echo "Your instance id is: $instanceId"
+echo "The address id is: $assocId"
 echo "The instance URL is: $instanceUrl"
