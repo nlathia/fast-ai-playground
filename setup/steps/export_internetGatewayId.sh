@@ -1,5 +1,5 @@
 #!/bin/bash
-export gatewayName="$name-gateway"
+gatewayName="$name-gateway"
 
 result=$(aws ec2 describe-internet-gateways --profile $profileName --filters "Name=tag-value,Values=$gatewayName")
 if [[ $result == *"InternetGatewayId"* ]]; then

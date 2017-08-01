@@ -25,4 +25,7 @@ export cidr="0.0.0.0/0"
 # Create/attach an Internet Gateway Id, if one doesn't already exist
 . $(dirname "$0")/steps/export_internetGatewayId.sh
 
+# Create/export subnet id
+. $(dirname "$0")/steps/export_subnetId.sh
+
 #. $(dirname "$0")/setup_instance.sh

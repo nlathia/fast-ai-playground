@@ -8,14 +8,6 @@
 
 
 
-
-
-echo 'Creating: subnetId'
-#export subnetId=$(aws ec2 create-subnet --vpc-id $vpcId --cidr-block 10.0.0.0/28 --query 'Subnet.SubnetId' --output text --profile $profileName)
-#aws ec2 create-tags --resources $subnetId --tags --tags Key=Name,Value=$name-subnet --profile $profileName
-#echo $subnetId
-
-
 #echo 'Creating: routeTableId'
 #export routeTableId=$(aws ec2 create-route-table --vpc-id $vpcId --query 'RouteTable.RouteTableId' --output text --profile $profileName)
 #aws ec2 create-tags --resources $routeTableId --tags --tags Key=Name,Value=$name-route-table --profile $profileName

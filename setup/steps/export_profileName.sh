@@ -11,11 +11,11 @@ fi
 
 if [[ $(aws configure --profile $profileName list) && $? -ne 0 ]]
   then
-    echo "Unknown profile!"
+    echo "Unknown profile! Aborting."
     exit 1
 fi
 
 if [ -z "$(aws configure get aws_access_key_id --profile $profileName)" ]; then
-    echo "AWS credentials not configured. Aborting"
+    echo "AWS credentials not configured. Aborting."
     exit 1
 fi
