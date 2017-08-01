@@ -5,6 +5,9 @@
 # uncomment for debugging
 # set -x
 
+# Abort if any command fails
+set -e
+
 # Settings
 export instanceType="p2.xlarge"
 export name="fast-ai"
@@ -36,3 +39,14 @@ export cidr="0.0.0.0/0"
 
 # Create/check SSH key-pair
 . $(dirname "$0")/steps/create_ssh_key_pair.sh
+
+# Create the instance, if it doesn't already exist
+. $(dirname "$0")/steps/create_instance.sh
+
+# Create/update the shortcuts
+. $(dirname "$0")/steps/create_shortcuts.sh
+
+# Create uninstall.sh
+. $(dirname "$0")/steps/create_uninstall.sh
+
+echo Finished.
