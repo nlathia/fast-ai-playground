@@ -10,11 +10,6 @@
 
 
 
-#export securityGroupId=$(aws ec2 create-security-group --group-name $name-security-group --description "SG for fast.ai machine" --vpc-id $vpcId --query 'GroupId' --output text --profile $profileName)
-
-## ssh
-aws ec2 authorize-security-group-ingress --group-id $securityGroupId --protocol tcp --port 22 --cidr $cidr --profile $profileName
-
 #if [ ! -d ~/.ssh ]
 #then
 #	mkdir ~/.ssh

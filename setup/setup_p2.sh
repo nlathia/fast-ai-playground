@@ -31,4 +31,7 @@ export cidr="0.0.0.0/0"
 # Create/export route table
 . $(dirname "$0")/steps/export_routeTable.sh
 
+# Create/export security group
+. $(dirname "$0")/steps/export_securityGroup.sh
+
 #. $(dirname "$0")/setup_instance.sh
