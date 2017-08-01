@@ -24,9 +24,6 @@ if [ "$instanceId" = "None" ] || [ "$(aws ec2 describe-instances --profile $prof
     ## error when running the nvidia-smi command
     ## see also http://forums.fast.ai/t/no-cuda-capable-device-is-detected/168/13
     aws ec2 reboot-instances --instance-ids $instanceId --profile $profileName
-
-    echo 'Setup finished. Stopping instance...'
-    aws ec2 stop-instances --instance-ids $instanceId --profile $profileName
 else
   echo "Retrieving info about existing instance: $instanceId"
   export instanceUrl=$(aws ec2 describe-instances --profile $profileName --output text --query "Reservations[0].Instances[0].PublicDnsName" --instance-ids $instanceId)

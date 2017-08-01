@@ -49,4 +49,8 @@ export cidr="0.0.0.0/0"
 # Create uninstall.sh
 . $(dirname "$0")/steps/create_uninstall.sh
 
+# Shut down
+echo 'Setup finished. Stopping instance...'
+. $(dirname "$0")/$name-stop.sh
+
 echo Finished.
