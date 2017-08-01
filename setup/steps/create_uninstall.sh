@@ -28,4 +28,3 @@ echo aws ec2 delete-vpc --vpc-id $vpcId --profile $profileName >> $target
 echo echo If you want to delete the key-pair, please do it manually. >> $target
 
 chmod u+x $target
-

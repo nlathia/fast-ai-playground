@@ -2,11 +2,10 @@
 
 routeTableName="$name-route-table"
 
-result=$(aws ec2 describe-route-tables --profile $profileName --filters "Name=tag-value,Values=$routeTableName")
-if [[ $result == *"RouteTableId"* ]]; then
-    echo "Parsing existing route table id..."
-    export routeTableId=$(echo $result | python -c "import sys, json; result = json.loads(sys.stdin.read()); print(result['RouteTables'][0]['RouteTableId'])")
-else
+export routeTableId=$(aws ec2 describe-route-tables --profile $profileName --filters "Name=tag-value,Values=$routeTableName" --query "RouteTables[0].RouteTableId" --output text)
+
+if [ "$routeTableId" = "None" ]
+  then
     echo "Creating a new route table..."
     export routeTableId=$(aws ec2 create-route-table --vpc-id $vpcId --query 'RouteTable.RouteTableId' --output text --profile $profileName)
     aws ec2 create-tags --resources $routeTableId --tags --tags Key=Name,Value=$routeTableName --profile $profileName
