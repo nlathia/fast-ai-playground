@@ -1,4 +1,4 @@
-# fast.ai's deep learning, without Jupyter
+# Another fast.ai deep learning Playground
 
 ## Setup AWS
 
