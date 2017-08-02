@@ -10,7 +10,7 @@ Here are the main differences:
     * Operations are idempotent (they do not recreate things if they already exist).
     * Setup everything using an AWS `--profile`
     * Create/restore volume snapshots, to save a bit of money
-* Lesson 1
+* Lesson 1: Cats vs Dogs.
     * I've refactored the python code from the notebooks into modules.
 
 ## Setup AWS
