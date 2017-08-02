@@ -5,6 +5,7 @@
 commands*
 *.csv
 *.zip
+*.pyc
 fast-ai*.sh
 uninstall-*.sh
 snapshot.sh
