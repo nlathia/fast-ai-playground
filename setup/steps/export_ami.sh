@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO Update to this: https://aws.amazon.com/marketplace/pp/B01M0AXXQB
 
 export region=$(aws configure get region --profile $profileName)
 echo "Setup region is: $region"

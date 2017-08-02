@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
 pyenv install
 
 pip install --upgrade virtualenv
