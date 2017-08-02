@@ -1,13 +1,19 @@
-# Another fast.ai deep learning Playground
+# Another fast.ai Deep Learning Playground
+
+## Why another repo?
+
+Here are the main differences:
+* No Jupyter! I've refactored the python code from the notebooks into modules.
+* Setup CLI operations are idempotent (they do not recreate things if they already exist).
+* Install/setup everything using an AWS `--profile`
 
 ## Setup AWS
 
 Refer to the [AWS install wiki page](http://wiki.fast.ai/index.php/AWS_install).
 
-Alternatively, I have made step-by-step setup guide [here](setup/Readme.md). This setup has the following differences:
+Alternatively, I have made step-by-step setup guide [here](setup/Readme.md). This setup has a number of differences:
 * Setup instructions using the AWS console interface as of July 2017.
 * Using an AWS `profile` argument instead of using the `default` profile.
-* Operations are idempotent (they do not recreate things if they already exist).
 * Commands to start/stop/reboot instances are split up into `.sh` files (instead of a single `commands.txt`).
 * Does not open up instance ports (needed for Jupyter)
 
