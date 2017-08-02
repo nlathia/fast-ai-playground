@@ -14,7 +14,7 @@ Alternatively, I have made step-by-step setup guide [here](setup/Readme.md). Thi
 
 ## Project setup
 
-First, install [pyenv](https://github.com/pyenv/pyenv).
+First, install [pyenv](https://github.com/pyenv/pyenv). To do this on Ubuntu, you can run [this](setup/install_pyenv.sh).
 
 Now, set up your environment using [install.sh](install.sh):
 
