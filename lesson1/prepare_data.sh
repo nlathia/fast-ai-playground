@@ -10,13 +10,18 @@ unzip -q train.zip
 
 echo 'Split data by class...'
 
-mkdir train/cat
-find train -type f -name 'cat*jpg' -exec mv {} train/cat/ \;
+mkdir cat
+find train -type f -name 'cat*jpg' -exec mv {} cat/ \;
 
-mkdir train/dog
-find train -type f -name 'dog*jpg' -exec mv {} train/dog/ \;
+mkdir dog
+find train -type f -name 'dog*jpg' -exec mv {} dog/ \;
+
+mv cat/ train
+mv dog/ train
 
 echo 'Split training data into train/validation...'
+
+# TODO gshuf is for Mac, won't work on AWS AMI (Ubuntu)
 
 mkdir -p valid/cat
 ls train/cat/ | gshuf -n 2000 | xargs -I '{}' mv 'train/cat/{}' valid/cat/
