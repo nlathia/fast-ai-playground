@@ -11,7 +11,8 @@ Here are the main differences:
     * Setup everything using an AWS `--profile`
     * Create/restore volume snapshots, to save a bit of money
 * Lesson 1: Cats vs Dogs.
-    * I've refactored the python code from the notebooks into modules.
+    * Added `prepare_data.sh` to download, split, format images from Kaggle.
+    * Refactored the python code from the notebooks into modules.
 
 ## Setup AWS
 
