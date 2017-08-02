@@ -3,10 +3,15 @@
 ## Why another repo?
 
 Here are the main differences:
-* No Jupyter! I've refactored the python code from the notebooks into modules.
-* Setup CLI operations are idempotent (they do not recreate things if they already exist).
-* Install/setup everything using an AWS `--profile`
-* Uses Python 3.6.1 and a virtual environment.
+* No Jupyter! Instead, this project:
+    * Uses pyenv
+    * Uses Python 3.6.1 and a virtual environment.
+* Setup CLI:
+    * Operations are idempotent (they do not recreate things if they already exist).
+    * Setup everything using an AWS `--profile`
+    * Create/restore volume snapshots, to save a bit of money
+* Lesson 1
+    * I've refactored the python code from the notebooks into modules.
 
 ## Setup AWS
 
