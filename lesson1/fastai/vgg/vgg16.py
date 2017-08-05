@@ -8,8 +8,7 @@ from keras.layers.core import (
 
 from .network import create_network
 from .utils import (
-    get_classes,
-    get_batches
+    get_classes
 )
 
 from keras import backend as K
@@ -19,6 +18,8 @@ K.set_image_dim_ordering('th')
 class Vgg16(object):
     """
     The VGG 16 Imagenet model
+
+    See keras.applications.vgg16 for more up-to-date
     """
 
     def __init__(self):
@@ -66,7 +67,10 @@ class Vgg16(object):
 
         Modifies the original VGG16 network architecture and updates self.classes for new training data.
         """
-        self.freeze_and_add_layer(batches.nb_class)
+        try:
+            self.freeze_and_add_layer(batches.nb_class)
+        except AttributeError:
+            self.freeze_and_add_layer(batches.num_class)
         classes = list(iter(batches.class_indices))  # get a list of all the class labels
         
         # batches.class_indices is a dict with the class name as key and an index as value
@@ -107,19 +111,3 @@ class Vgg16(object):
                                  nb_epoch=nb_epoch,
                                  validation_data=val_batches,
                                  nb_val_samples=val_batches.nb_sample)
-
-    def test(self, path, batch_size=8):
-        """
-        :param path: (string) Path to the target directory. It should contain one subdirectory  per class.
-        :param batch_size: The number of images to be considered in each batch.
-        :return: test_batches, numpy array(s) of predictions for the test_batches.
-
-        Predicts the classes using the trained model on data yielded batch-by-batch.
-        """
-
-        test_batches = get_batches(path,
-                                   shuffle=False,
-                                   batch_size=batch_size,
-                                   class_mode=None)
-        return test_batches, self.model.predict_generator(test_batches, test_batches.nb_sample)
-

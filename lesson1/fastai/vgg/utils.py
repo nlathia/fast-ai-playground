@@ -2,11 +2,15 @@ from keras.utils.data_utils import get_file
 from keras.preprocessing import image
 
 import numpy as np
+import cv2
 import json
 import os
 
 FILE_PATH = 'http://files.fast.ai/models/'
 VGG_MEAN = np.array([123.68, 116.779, 103.939], dtype=np.float32).reshape((3, 1, 1))
+CHANNELS = 3
+ROWS = 224
+COLS = 224
 
 
 def get_classes():
@@ -30,7 +34,21 @@ def get_batches(path, gen=image.ImageDataGenerator(), shuffle=True, batch_size=8
     See Keras documentation: https://keras.io/preprocessing/image/
     """
     return gen.flow_from_directory(path,
-                                   target_size=(224, 224),
+                                   target_size=(ROWS, COLS),
                                    class_mode=class_mode,
                                    shuffle=shuffle,
                                    batch_size=batch_size)
+
+
+def get_images(path):
+
+    def read_image(file_path):
+        img = cv2.imread(file_path, cv2.IMREAD_COLOR)
+        return cv2.resize(img, (ROWS, COLS), interpolation=cv2.INTER_CUBIC)
+
+    image_files = [f for f in os.listdir(path) if '.jpg' in f]
+    for image_file in image_files:
+        image_id = image_file.split('.')[0]
+        data = np.ndarray((1, CHANNELS, ROWS, COLS), dtype=np.uint8)
+        data[0] = read_image(os.path.join(path, image_file)).T
+        yield image_id, data

@@ -16,7 +16,10 @@ from keras.layers.core import (
 
 from .utils import (
     FILE_PATH,
-    VGG_MEAN
+    VGG_MEAN,
+    CHANNELS,
+    ROWS,
+    COLS
 )
 
 
@@ -80,8 +83,8 @@ def create_network():
     """
     model = Sequential()
     model.add(Lambda(_vgg_preprocess,
-                     input_shape=(3, 224, 224),
-                     output_shape=(3, 224, 224)))
+                     input_shape=(CHANNELS, ROWS, COLS),
+                     output_shape=(CHANNELS, ROWS, COLS)))
     model = _add_conv_block(model, 2, 64)
     model = _add_conv_block(model, 2, 128)
     model = _add_conv_block(model, 3, 256)
