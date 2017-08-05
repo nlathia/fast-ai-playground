@@ -1,7 +1,1 @@
-awscli
 kaggle-cli
-scipy
-numpy
-keras
-h5py
-opencv-python

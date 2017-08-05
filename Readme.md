@@ -27,18 +27,18 @@ I have made step-by-step setup guide [here](setup/Readme.md). This setup has a n
 * Does not open up instance ports (needed for Jupyter)
 
 
-## Project setup
+## Local project setup
 
-First, install [pyenv](https://github.com/pyenv/pyenv). On Ubuntu, you can do it using [this](pyenv_ubuntu.sh).
+First, install [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv).
 
-Set up your environment using [install.sh](install.sh):
+Set up your environment using [install_local.sh](install_local.sh):
 
 ```
 $ ./install.sh
 ```
 
 This will:
-* Install Python 3.6.1 (using `pyenv`) and use it for this project.
+* Install `anaconda2-4.4.0` (using `pyenv`) and use it for this project.
 * Create a virtualenv called `(fast.ai)`
 * Install all the dependencies listed in `requirements.txt`
 
@@ -47,13 +47,19 @@ You're ready!
 To activate this virtualenv:
 
 ```bash
-$ source .venv/bin/activate
+$ source activate fast.ai
+```
+
+And do deactivate:
+
+```bash
+$ source deactivate
 ```
 
 Now, just `cd` into each lesson and get started:
 
 ```bash
-(fast-ai) $ cd lesson1/
+(fast-ai)$ cd lesson1/
 ```
 
 Each lesson directory has its own `Readme.md`
