@@ -35,17 +35,15 @@ First, install [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](ht
 Set up your environment using [install_local.sh](install_local.sh):
 
 ```
-$ ./install.sh
+$ ./install_local.sh
 ```
 
 This will:
 * Install `anaconda2-4.4.0` (using `pyenv`) and use it for this project.
 * Create a virtualenv called `(fast.ai)`
-* Install all the dependencies listed in `requirements.txt`
+* Install all the dependencies listed in `requirements.txt` and `dev_requirements.txt`
 
-You're ready!
-
-To activate this virtualenv:
+You're ready! To activate this virtualenv:
 
 ```bash
 $ source activate fast.ai
