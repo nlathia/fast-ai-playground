@@ -17,5 +17,6 @@ aws ec2 wait volume-available --volume-ids $volumeId --profile $profileName
 echo "Starting up instance: $instanceId, with volume: $volumeId, device: $devicePath"
 aws ec2 attach-volume --instance-id $instanceId --volume-id $volumeId --device $devicePath --profile $profileName
 aws ec2 start-instances --instance-ids $instanceId --profile $profileName
+aws ec2 wait instance-running --instance-ids $instanceId --profile $profileName
 
 # TODO: delete the snapshot after loading it to save space

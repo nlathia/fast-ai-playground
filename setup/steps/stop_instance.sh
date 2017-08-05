@@ -15,7 +15,7 @@ if [ "$volumeId" != "None" ]
     echo export snapshotId=$snapshotId > $name-snapshot.sh
     echo export instanceId=$instanceId >> $name-snapshot.sh
     echo export devicePath=$devicePath >> $name-snapshot.sh
-    echo "Storing snapshot id: $snapshotId"
+    echo "Storing snapshot id: $snapshotId to $name-snapshot.sh"
     chmod u+x $name-snapshot.sh
 else
   echo 'No volumes attached to instance.'

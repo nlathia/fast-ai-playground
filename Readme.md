@@ -29,6 +29,8 @@ I have made step-by-step setup guide [here](setup/Readme.md). This setup has a n
 
 ## Project setup
 
+First, install [pyenv](https://github.com/pyenv/pyenv). On Ubuntu, you can do it using [this](pyenv_ubuntu.sh).
+
 Set up your environment using [install.sh](install.sh):
 
 ```
@@ -36,7 +38,6 @@ $ ./install.sh
 ```
 
 This will:
-* Install [pyenv](https://github.com/pyenv/pyenv).
 * Install Python 3.6.1 (using `pyenv`) and use it for this project.
 * Create a virtualenv called `(fast.ai)`
 * Install all the dependencies listed in `requirements.txt`
