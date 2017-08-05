@@ -11,7 +11,9 @@ Here are the main differences:
     * Setup everything using an AWS `--profile`
     * Create/restore volume snapshots, to save a bit of money
 * Lesson 1: Cats vs Dogs.
-    * Added `prepare_data.sh` to download, split, format images from Kaggle.
+    * Added `download_data.sh` to download data from Kaggle.
+    * Added `prepare_data_for_validation.sh` to create a random validation set.
+    * Added `prepare_data_for_test.sh` to merge everything back again.
     * Refactored the python code from the notebooks into modules.
 
 ## Setup AWS
