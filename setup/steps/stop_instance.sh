@@ -12,11 +12,11 @@ if [ "$volumeId" != "None" ]
 
     aws ec2 detach-volume --volume-id $volumeId --profile $profileName
     aws ec2 delete-volume --volume-id $volumeId --profile $profileName
-    echo export snapshotId=$snapshotId > snapshot.sh
-    echo export instanceId=$instanceId >> snapshot.sh
-    echo export devicePath=$devicePath >> snapshot.sh
+    echo export snapshotId=$snapshotId > $name-snapshot.sh
+    echo export instanceId=$instanceId >> $name-snapshot.sh
+    echo export devicePath=$devicePath >> $name-snapshot.sh
     echo "Storing snapshot id: $snapshotId"
-    chmod u+x snapshot.sh
+    chmod u+x $name-snapshot.sh
 else
   echo 'No volumes attached to instance.'
 fi

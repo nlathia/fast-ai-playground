@@ -19,6 +19,7 @@ echo export subnetId=$subnetId >> $name-variables.sh
 echo export routeTableAssoc=$routeTableAssoc >> $name-variables.sh
 echo export allocAddr=$allocAddr >> $name-variables.sh
 echo export routeTableAssoc=$routeTableAssoc >> $name-variables.sh
+echo export name=$name >> $name-variables.sh
 
 echo \# Connect to your instance: > $name-connect.sh
 echo ssh -i ~/.ssh/aws-key-$name.pem ubuntu@$instanceUrl >> $name-connect.sh
