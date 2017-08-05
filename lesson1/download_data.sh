@@ -41,6 +41,5 @@ mv valid data
 mv test1 data
 
 # Clean up
-
 #rm train.zip
 #rm test.zip

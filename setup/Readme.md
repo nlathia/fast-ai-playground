@@ -90,10 +90,14 @@ $ ./setup_p2.sh <profile-name>
 
 Where `<profile-name>` is the profile you created when configuring your AWS CLI. 
 
-This will produce:
-* `fast-ai-connect.sh` to connect to your instance.
-* `fast-ai-reboot.sh` to reboot your instance (untested).
-* `fast-ai-start.sh` to start your instance and create/restore an EBS volume from a snapshot.
-* `fast-ai-stop.sh` to stop your instance and detach/store your EBS volume as a snapshopt.
-* `fast-ai-variables.sh` to export all of the variables created throughout the installation.
-* `uninstall-p2.xlarge.sh` to uninstall/remove everything.
+This will produce files like this:
+* `<name>-connect.sh` to connect to your instance.
+* `<name>-reboot.sh` to reboot your instance (untested).
+* `<name>-start.sh` to start your instance and create/restore an EBS volume from a snapshot.
+* `<name>-stop.sh` to stop your instance and detach/store your EBS volume as a snapshopt.
+* `<name>-variables.sh` to export all of the variables created throughout the installation.
+* `uninstall-<instance-type>.sh` to uninstall/remove everything.
+
+By default:
+* `<name>` is set to `fast-ai` for `p2.xlarge` instances, `test-machine` otherwise.
+* `<istance-type>` is set to `p2.xlarge`

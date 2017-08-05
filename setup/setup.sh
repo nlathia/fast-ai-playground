@@ -10,7 +10,7 @@ set -e
 
 # Settings
 # Why? When you will launch your instance, it will need: --instance-type $instanceType
-export instanceType="m4.large" #"p2.xlarge"  # t2.xlarge
+export instanceType="p2.xlarge" # "m4.large"  # t2.xlarge
 if [ "$instanceType" = "p2.xlarge" ]; then
   export name="fast-ai"
 else
