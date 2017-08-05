@@ -10,8 +10,12 @@ set -e
 
 # Settings
 # Why? When you will launch your instance, it will need: --instance-type $instanceType
-export instanceType="p2.xlarge"  # t2.xlarge
-export name="fast-ai"
+export instanceType="m4.large" #"p2.xlarge"  # t2.xlarge
+if [ "$instanceType" = "p2.xlarge" ]; then
+  export name="fast-ai"
+else
+  export name="test-machine"
+fi
 export cidr="0.0.0.0/0"
 
 # Make sure CLI is installed
