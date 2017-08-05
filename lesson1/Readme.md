@@ -14,7 +14,7 @@ sudo apt-get install unzip
 
 Run this:
 ```bash
-(fast-ai)$ ./download_data.sh <your-kaggle-username> <your-kaggle-pwd>
+(fast.ai)$ ./download_data.sh <your-kaggle-username> <your-kaggle-pwd>
 ```
 
 This will:
@@ -26,7 +26,7 @@ This will:
 
 Run this:
 ```bash
-(fast-ai)$ ./prepare_data_for_validation.sh
+(fast.ai)$ ./prepare_data_for_validation.sh
 ```
 
 This will:
@@ -48,7 +48,19 @@ data
 Now, you can run:
 
 ```bash
-(fast-ai)$ python run_pre_trained_validation.py
+(fast.ai)$ python run_validation.py
 ```
 
 ## Create a submission with the test set
+
+```bash
+(fast.ai)$ python run_predict.py
+```
+
+Will generate a `submission.csv` with class predictions.
+
+```bash
+(fast.ai)$ ./submit_predictions.sh <your-kaggle-username> <your-kaggle-pwd>
+```
+
+Will submit them using the kaggle-cli.
