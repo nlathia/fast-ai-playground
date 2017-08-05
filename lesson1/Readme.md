@@ -7,6 +7,11 @@ If you're on a mac, the following assumes that you have `coreutils` installed. I
 brew install coreutils
 ```
 
+If your on Ubuntu, the following assumes that you have `unzip` installed. If you do not:
+```bash
+sudo apt-get install unzip
+```
+
 Run this:
 ```bash
 (fast-ai)$ ./download_data.sh <your-kaggle-username> <your-kaggle-pwd>

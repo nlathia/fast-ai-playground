@@ -3,6 +3,5 @@ kaggle-cli
 scipy
 numpy
 keras
-Theano
 h5py
 opencv-python
