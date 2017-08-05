@@ -6,6 +6,7 @@
 *.zip
 *.pyc
 fast-ai*.sh
+test-machine-*.sh
 uninstall-*.sh
 snapshot.sh
 
