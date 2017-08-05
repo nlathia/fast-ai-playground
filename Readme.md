@@ -3,9 +3,9 @@
 ## Why another repo?
 
 Here are the main differences:
-* No Jupyter! Instead, this project:
+* Python:
     * Uses pyenv
-    * Uses Python 3.6.1 and a virtual environment.
+    * Uses pyenv-virtualenv
 * Setup CLI:
     * Operations are idempotent (they do not recreate things if they already exist).
     * Setup everything using an AWS `--profile`
@@ -15,6 +15,7 @@ Here are the main differences:
     * Added `prepare_data_for_validation.sh` to create a random validation set.
     * Added `prepare_data_for_test.sh` to merge everything back again.
     * Refactored the python code from the notebooks into modules.
+    * Added `submit_predictions.sh`
 
 ## Setup AWS
 
