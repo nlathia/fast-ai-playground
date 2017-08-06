@@ -1,6 +1,19 @@
 # Lesson 1: Cats vs. Dogs
 
-## Download the data
+## Configure the kaggle CLI
+
+```bash
+$ kg config -u <your-kaggle-username> -p <your-kaggle-pwd> -c 'dogs-vs-cats-redux-kernels-edition'
+```
+
+You can check the result of this by typing `kg config`, which will show the current config settings:
+```bash
+$ kg config
+Working config:
+[('username', u'neal.lathia@gmail.com'), ('password', '**'), ('competition', u'dogs-vs-cats-redux-kernels-edition')]
+```
+
+## Download and split the data
 
 If you're on a mac, the following assumes that you have `coreutils` installed. If you do not:
 ```bash
@@ -57,7 +70,7 @@ Now, you can run:
 (fast.ai)$ python run_predict.py
 ```
 
-Will generate a `submission.csv` with class predictions. Note: this competition does not appear to be accepting submissions.
+Will generate a `submission.csv` with class predictions.
 
 ```bash
 (fast.ai)$ ./submit_predictions.sh <your-kaggle-username> <your-kaggle-pwd>

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo 'Download data from Kaggle...'
-kg download -u $1 -p $2 -c 'dogs-vs-cats'
+kg download
 
 echo 'Unzip training data...'
 unzip -q train.zip

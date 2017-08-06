@@ -4,13 +4,14 @@
 
 Here are the main differences:
 * Python:
-    * Uses pyenv
+    * Uses pyenv, a useful tool to manage multiple versions of python on one machine.
     * Uses pyenv-virtualenv
 * Setup CLI:
     * Operations are idempotent (they do not recreate things if they already exist).
     * Setup everything using an AWS `--profile`
     * Create/restore volume snapshots, to save a bit of money
-* Lesson 1: Cats vs Dogs.
+    * Use on demand or spot instances.
+* Dogs vs Cats (Lesson 1, 2).
     * Added `download_data.sh` to download data from Kaggle.
     * Added `prepare_data_for_validation.sh` to create a random validation set.
     * Added `prepare_data_for_test.sh` to merge everything back again.
@@ -54,11 +55,3 @@ And do deactivate:
 ```bash
 $ source deactivate
 ```
-
-Now, just `cd` into each lesson and get started:
-
-```bash
-(fast-ai)$ cd lesson1/
-```
-
-Each lesson directory has its own `Readme.md`
