@@ -64,6 +64,7 @@ export cidr="0.0.0.0/0"
 . $(dirname "$0")/steps/save_shortcuts.sh
 
 # Create uninstall.sh: to remove all of the above from AWS.
+# TODO: cancel spot instance request
 . $(dirname "$0")/steps/create_uninstall.sh
 
 echo Finished.
