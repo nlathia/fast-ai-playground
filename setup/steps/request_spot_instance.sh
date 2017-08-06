@@ -1,16 +1,15 @@
 #!/bin/bash
-set -x
 
 instanceName="$name-spot-gpu-machine"
 # See spot instance pricing history here:
 # http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html
-bidPrice=0.3
+bidPrice=0.25
 
 cat >specs.json <<EOF
 {
   "ImageId" : "$ami",
   "InstanceType": "$instanceType",
-  "KeyName" : "$key_name",
+  "KeyName" : "aws-key-$name",
   "EbsOptimized": true,
   "BlockDeviceMappings": [
     {
@@ -33,12 +32,18 @@ cat >specs.json <<EOF
 }
 EOF
 
+# Get the first available zone
+# TODO: get the available zone with the cheapest spot price
+# https://gist.github.com/pahud/fbbc1fd80fac4544fd0a3a480602404e
+zone=$(aws ec2 describe-availability-zones --profile $profileName --output text --query "AvailabilityZones[0].ZoneName")
 
-requestId=$(aws ec2 request-spot-instances --spot-price $bidPrice --instance-count 1 --type "one-time" --launch-specification file://specs.json --profile $profileName --output text --query="SpotInstanceRequests[*].SpotInstanceRequestId" --block-duration-minutes 120)
+echo "Requesting a spot instance in $zone"
+requestId=$(aws ec2 request-spot-instances --spot-price $bidPrice --instance-count 1 --type "one-time" --launch-specification file://specs.json --profile $profileName --output text --query="SpotInstanceRequests[*].SpotInstanceRequestId" --availability-zone-group $zone)
 
 rm specs.json  # Clean up
 
 echo "Spot instance request id is: $requestId. Waiting for request to be fulfilled..."
+sleep 5
 aws ec2 wait spot-instance-request-fulfilled --spot-instance-request-ids $requestId --profile $profileName
 
 export instanceId=$(aws ec2 describe-spot-instance-requests --spot-instance-request-ids $requestId --query="SpotInstanceRequests[*].InstanceId" --output="text" --profile $profileName)
