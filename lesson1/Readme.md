@@ -57,7 +57,7 @@ Now, you can run:
 (fast.ai)$ python run_predict.py
 ```
 
-Will generate a `submission.csv` with class predictions.
+Will generate a `submission.csv` with class predictions. Note: this competition does not appear to be accepting submissions.
 
 ```bash
 (fast.ai)$ ./submit_predictions.sh <your-kaggle-username> <your-kaggle-pwd>
