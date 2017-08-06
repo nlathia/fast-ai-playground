@@ -7,6 +7,7 @@ rm -f $name-*.sh
 echo \# Your setup variables: > $name-variables.sh
 echo export profileName=$profileName >> $name-variables.sh
 echo export instanceId=$instanceId >> $name-variables.sh
+echo export instanceName=$instanceName >> $name-variables.sh
 echo export subnetId=$subnetId >> $name-variables.sh
 echo export securityGroupId=$securityGroupId >> $name-variables.sh
 echo export instanceUrl=$instanceUrl >> $name-variables.sh

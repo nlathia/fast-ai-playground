@@ -58,7 +58,7 @@ export cidr="0.0.0.0/0"
 . $(dirname "$0")/steps/create_ssh_key_pair.sh
 
 # Create the instance. This is what we've been working to!
-. $(dirname "$0")/steps/create_instance.sh
+. $(dirname "$0")/steps/request_spot_instance.sh
 
 # Create/update the shortcuts: .sh files to quickly start/stop/reboot instances.
 . $(dirname "$0")/steps/save_shortcuts.sh

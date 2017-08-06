@@ -1,0 +1,24 @@
+{
+  "ImageId" : "ami-b43d1ec7",
+  "InstanceType": "p2.xlarge",
+  "KeyName" : "",
+  "EbsOptimized": true,
+  "BlockDeviceMappings": [
+    {
+      "DeviceName": "/dev/sda1",
+      "Ebs": {
+        "DeleteOnTermination": true,
+        "VolumeType": "gp2",
+        "VolumeSize": 128
+      }
+    }
+  ],
+  "NetworkInterfaces": [
+      {
+        "DeviceIndex": 0,
+        "SubnetId": "subnet-000cb667",
+        "Groups": [ "sg-4bd85633" ],
+        "AssociatePublicIpAddress": true
+      }
+  ]
+}
