@@ -8,7 +8,8 @@ from keras.layers.core import (
 
 from .network import create_network
 from .utils import (
-    get_classes
+    get_classes,
+    get_batches
 )
 
 from keras import backend as K
@@ -111,3 +112,14 @@ class Vgg16(object):
                                  nb_epoch=nb_epoch,
                                  validation_data=val_batches,
                                  nb_val_samples=val_batches.nb_sample)
+
+    def test(self, path, batch_size=8):
+        """
+        :param path: Path to the target directory.
+        :param batch_size: The number of images to be considered in each batch.
+        :return: test_batches, numpy array(s) of predictions for the test_batches.
+
+        Predicts the classes using the trained model on data yielded batch-by-batch.
+        """
+        test_batches = get_batches(path, shuffle=False, batch_size=batch_size, class_mode=None)
+        return test_batches, self.model.predict_generator(test_batches, test_batches.nb_sample)

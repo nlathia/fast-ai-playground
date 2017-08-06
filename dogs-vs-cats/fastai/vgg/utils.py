@@ -41,6 +41,12 @@ def get_batches(path, gen=image.ImageDataGenerator(), shuffle=True, batch_size=8
 
 
 def get_images(path):
+    """
+    :param path: A directory containing images
+    :return: A generator, yielding an image id and the image
+
+    Note: currently unused/legacy
+    """
 
     def read_image(file_path):
         img = cv2.imread(file_path, cv2.IMREAD_COLOR)
