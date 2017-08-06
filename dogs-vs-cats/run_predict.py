@@ -19,7 +19,7 @@ vgg.fine_tune(batches)
 batches, probabilities = vgg.test(TEST)
 
 image_ids = [int(f[f.rindex('/')+1:f.index('.')]) for f in batches.filenames]
-is_dog_probability = probabilities[:, 1]
+is_dog_probability = np.clip(probabilities[:, 1], 0.05, 0.95)
 
 submission = np.stack([image_ids, is_dog_probability], axis=1)
 np.savetext('submission.csv', submission, fmt='%d,%.5f', header='id,label')
