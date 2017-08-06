@@ -17,13 +17,13 @@ mv cat/ train
 mv dog/ train
 
 echo 'Unzip test set...'
-unzip -q test1.zip
+unzip -q test.zip
 
 echo 'Move everything into a data/ directory...'
 
 mkdir data
 mv train data
-mv test1 data
+mv test data
 
 # Clean up
 #rm train.zip
