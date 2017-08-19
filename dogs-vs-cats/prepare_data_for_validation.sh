@@ -17,12 +17,10 @@ fi
 
 echo 'Split training data into train/validation...'
 
-source=data/train/cat
-target=data/valid/cat
-mkdir -p $target
-ls $source | $command -n 2000 | xargs -I '{}' mv "$source/{}" $target
-
-source=data/train/dog
-target=data/valid/dog
-mkdir -p $target
-ls $source | $command -n 2000 | xargs -I '{}' mv "$source/{}" $target
+for category in $(ls data/train); do
+    echo "Split: $category"
+    source=data/train/$category
+    target=data/valid/$category
+    mkdir -p $target
+    ls $source | $command -n 2000 | xargs -I '{}' mv "$source/{}" $target
+done
